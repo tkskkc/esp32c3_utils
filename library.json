@@ -1,0 +1,17 @@
+{
+  "name": "utils",
+  "version": "0.1.0",
+  "description": "MQTT and OTA handler for ESP32-C3",
+  "keywords": "MQTT, Wi-Fi, OTA, Log, ESP32",
+  "authors": [
+    {
+      "name": "Takashi Kikuchi",
+      "maintainer": true
+    }
+  ],
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "build": {
+    "srcDir": "src"
+  }
+}
