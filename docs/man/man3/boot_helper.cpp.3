@@ -1,0 +1,32 @@
+.TH "src/boot_helper.cpp" 3 "esp32c3_lib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/boot_helper.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'boot_helper\&.h'\fP
+.br
+\fC#include <settings\&.h>\fP
+.br
+\fC#include 'mqtt_helper\&.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "void \fBpublishBootStatus\fP ()"
+.br
+.RI "デバイスの起動ステータスをMQTTでパブリッシュします。 "
+.in -1c
+.SH "関数詳解"
+.PP 
+.SS "void publishBootStatus ()"
+
+.PP
+デバイスの起動ステータスをMQTTでパブリッシュします。 リセット理由、ファームウェアバージョン、コアID、ヒープ情報、フラッシュサイズなどを含む JSON形式のペイロードを構築し、MQTT_PUB_STATUSトピックに送信します。 
+.SH "著者"
+.PP 
+ esp32c3_libのソースコードから抽出しました。

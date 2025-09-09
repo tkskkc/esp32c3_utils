@@ -1,0 +1,32 @@
+.TH "src/wifi_helper.h" 3 "esp32c3_lib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/wifi_helper.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <WiFi\&.h>\fP
+.br
+\fC#include <settings\&.h>\fP
+.br
+\fC#include 'log_helper\&.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "void \fBmaintainWiFiConnection\fP ()"
+.br
+.RI "WiFi接続を維持します。 "
+.in -1c
+.SH "関数詳解"
+.PP 
+.SS "void maintainWiFiConnection ()"
+
+.PP
+WiFi接続を維持します。 WiFiが未接続の場合、再接続を試行します。接続成功時にはIPアドレス、SSID、MACアドレスをログに出力します。 接続に失敗した場合でも、ループを維持し再起動は行いません。 
+.SH "著者"
+.PP 
+ esp32c3_libのソースコードから抽出しました。

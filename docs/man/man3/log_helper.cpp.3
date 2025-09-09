@@ -1,0 +1,85 @@
+.TH "src/log_helper.cpp" 3 "esp32c3_lib" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/log_helper.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <Arduino\&.h>\fP
+.br
+\fC#include <ArduinoJson\&.h>\fP
+.br
+\fC#include <settings\&.h>\fP
+.br
+\fC#include 'log_helper\&.h'\fP
+.br
+\fC#include 'mqtt_helper\&.h'\fP
+.br
+
+.SS "関数"
+
+.in +1c
+.ti -1c
+.RI "String \fBgetLogLevelString\fP (\fBLogLevel\fP level)"
+.br
+.RI "LogLevel列挙型に対応する文字列を返します。 "
+.ti -1c
+.RI "int \fBgetLogLevelInt\fP (\fBLogLevel\fP level)"
+.br
+.RI "LogLevel列挙型に対応する整数値を返します。 "
+.ti -1c
+.RI "void \fBlogMessage\fP (\fBLogLevel\fP level, const String &message)"
+.br
+.RI "指定されたログレベルとメッセージを処理します。 "
+.in -1c
+.SH "関数詳解"
+.PP 
+.SS "int getLogLevelInt (\fBLogLevel\fP level)"
+
+.PP
+LogLevel列挙型に対応する整数値を返します。 
+.PP
+\fB引数\fP
+.RS 4
+\fIlevel\fP ログレベル。 
+.RE
+.PP
+\fB戻り値\fP
+.RS 4
+ログレベルの整数表現。 
+.RE
+.PP
+
+.SS "String getLogLevelString (\fBLogLevel\fP level)"
+
+.PP
+LogLevel列挙型に対応する文字列を返します。 
+.PP
+\fB引数\fP
+.RS 4
+\fIlevel\fP ログレベル。 
+.RE
+.PP
+\fB戻り値\fP
+.RS 4
+ログレベルの文字列表現。 
+.RE
+.PP
+
+.SS "void logMessage (\fBLogLevel\fP level, const String & message)"
+
+.PP
+指定されたログレベルとメッセージを処理します。 CURRENT_LOG_LEVELに基づいてメッセージをフィルタリングし、 MQTTまたはシリアルポートに出力します。 
+.PP
+\fB引数\fP
+.RS 4
+\fIlevel\fP ログレベル。 
+.br
+\fImessage\fP 出力するメッセージ。 
+.RE
+.PP
+
+.SH "著者"
+.PP 
+ esp32c3_libのソースコードから抽出しました。
