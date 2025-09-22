@@ -4,9 +4,9 @@
 
 #define BUZZER_PIN 4
 #define BZ_CHANNEL LEDC_CHANNEL_0
-#define BZ_TIMER LEDC_TIMER_0
-#define BZ_MODE LEDC_LOW_SPEED_MODE // ← High-Speed はC3で未定義
-#define BZ_RES LEDC_TIMER_8_BIT     // 8bit分解能
+#define BZ_TIMER   LEDC_TIMER_0
+#define BZ_MODE    LEDC_LOW_SPEED_MODE  // High-Speed はC3で未定義
+#define BZ_RES     LEDC_TIMER_8_BIT     // 8bit分解能
 
 // freq[Hz] を duration_ms[ms] だけ鳴らす
 /**
@@ -19,22 +19,22 @@
 void toneESP(uint32_t freq, uint32_t duration_ms) {
   // 1) タイマー設定
   ledc_timer_config_t timer_conf = {};
-  timer_conf.speed_mode = BZ_MODE;
+  timer_conf.speed_mode      = BZ_MODE;
   timer_conf.duty_resolution = BZ_RES;
-  timer_conf.timer_num = BZ_TIMER;
-  timer_conf.freq_hz = freq;
-  timer_conf.clk_cfg = LEDC_AUTO_CLK;
+  timer_conf.timer_num       = BZ_TIMER;
+  timer_conf.freq_hz         = freq;
+  timer_conf.clk_cfg         = LEDC_AUTO_CLK;
   ledc_timer_config(&timer_conf);
 
   // 2) チャンネル設定（最初は duty=0 でセット）
   ledc_channel_config_t chan_conf = {};
-  chan_conf.gpio_num = BUZZER_PIN;
+  chan_conf.gpio_num   = BUZZER_PIN;
   chan_conf.speed_mode = BZ_MODE;
-  chan_conf.channel = BZ_CHANNEL;
-  chan_conf.intr_type = LEDC_INTR_DISABLE;
-  chan_conf.timer_sel = BZ_TIMER;
-  chan_conf.duty = 0;
-  chan_conf.hpoint = 0;
+  chan_conf.channel    = BZ_CHANNEL;
+  chan_conf.intr_type  = LEDC_INTR_DISABLE;
+  chan_conf.timer_sel  = BZ_TIMER;
+  chan_conf.duty       = 0;
+  chan_conf.hpoint     = 0;
   ledc_channel_config(&chan_conf);
 
   // 3) 出力ON  (50%デューティ)

@@ -35,13 +35,13 @@ void publishBootStatus() {
   }
 
   DynamicJsonDocument doc(128);
-  doc["boot"] = "ok";
-  doc["version"] = DEVICE_VERSION;
-  doc["reason"] = reasonStr;
-  doc["core"] = xPortGetCoreID();
-  doc["heapMax"] = ESP.getMaxAllocHeap();
+  doc["boot"]      = "ok";
+  doc["version"]   = DEVICE_VERSION;
+  doc["reason"]    = reasonStr;
+  doc["core"]      = xPortGetCoreID();
+  doc["heapMax"]   = ESP.getMaxAllocHeap();
   doc["flashSize"] = ESP.getFlashChipSize();
-  doc["level"] = LOG_INFO;
+  doc["level"]     = LOG_INFO;
 
   String payload;
   serializeJson(doc, payload);

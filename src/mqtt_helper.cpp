@@ -77,12 +77,12 @@ void handleReceivedMessage(const char *topic, const char *payload) {
  */
 void sendDeviceStatus() {
   DynamicJsonDocument doc(256);
-  doc["level"] = LOG_INFO;
-  doc["rssi"] = WiFi.RSSI();
-  doc["uptime"] = millis() / 1000; // 秒単位
-  doc["heap"] = ESP.getFreeHeap();
+  doc["level"]  = LOG_INFO;
+  doc["rssi"]   = WiFi.RSSI();
+  doc["uptime"] = millis() / 1000;  // 秒単位
+  doc["heap"]   = ESP.getFreeHeap();
 
   String payload;
   serializeJson(doc, payload);
-  publishMQTT(MQTT_PUB_LOG, payload); // 例：smart_speaker/esp32c3_node01/log
+  publishMQTT(MQTT_PUB_LOG, payload);   // 例：smart_speaker/esp32c3_node01/log
 }

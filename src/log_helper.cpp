@@ -57,7 +57,7 @@ void logMessage(LogLevel level, const String &message) {
     return;
 
   DynamicJsonDocument doc(128);
-  doc["level"] = getLogLevelInt(level);
+  doc["level"]   = getLogLevelInt(level);
   doc["message"] = message;
 
   String payload;
